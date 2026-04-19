@@ -12,6 +12,7 @@ namespace Contensio\FakePosts;
 
 use Contensio\Support\Hook;
 use Contensio\FakePosts\Console\SeedFakePostsCommand;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class FakePostsServiceProvider extends ServiceProvider
@@ -27,6 +28,22 @@ class FakePostsServiceProvider extends ServiceProvider
 
         Hook::add('contensio/admin/settings-cards', function () {
             return view('fake-posts::partials.settings-hub-card')->render();
+        });
+
+        // Badge in content/posts listing rows
+        Hook::add('contensio/admin/content-row-badges', function ($item) {
+            $isFake = DB::table('content_meta')
+                ->where('content_id', $item->id)
+                ->where('meta_key', '_fake_post')
+                ->where('meta_value', '1')
+                ->exists();
+
+            if (! $isFake) {
+                return '';
+            }
+
+            return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">'
+                . '<i class="bi bi-magic"></i> Fake</span>';
         });
     }
 }

@@ -65,7 +65,7 @@
     </div>
 
     {{-- Generate form --}}
-    <form method="POST" action="{{ route('fake-posts.generate') }}">
+    <form method="POST" action="{{ route('fake-posts.generate') }}" id="generate-form">
         @csrf
 
         <div class="rounded-xl border border-gray-200 bg-white divide-y divide-gray-100">
@@ -167,15 +167,34 @@
 
         {{-- Submit --}}
         <div class="mt-5 flex items-center gap-3">
-            <button type="submit"
+            <button type="submit" id="generate-btn"
                     class="inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
-                <i class="bi bi-magic"></i>
-                Generate fake posts
+                <i class="bi bi-magic" id="generate-icon"></i>
+                <span id="generate-label">Generate fake posts</span>
             </button>
-            <span class="text-xs text-gray-400">Posts will be published immediately and tagged for easy cleanup.</span>
+            <span class="text-xs text-gray-400" id="generate-hint">Posts will be published immediately and tagged for easy cleanup.</span>
         </div>
 
     </form>
+
+    <script>
+    document.getElementById('generate-form').addEventListener('submit', function () {
+        var btn   = document.getElementById('generate-btn');
+        var icon  = document.getElementById('generate-icon');
+        var label = document.getElementById('generate-label');
+        var hint  = document.getElementById('generate-hint');
+
+        btn.disabled = true;
+        btn.classList.remove('hover:bg-ember-600');
+        btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+        icon.className = '';
+        icon.innerHTML = '<svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>';
+
+        label.textContent = 'Generating content, please wait\u2026';
+        hint.textContent  = 'This may take a few seconds depending on the number of posts and images.';
+    });
+    </script>
 
     {{-- Artisan tip --}}
     <div class="mt-8 rounded-lg bg-gray-50 border border-gray-200 px-4 py-3">
