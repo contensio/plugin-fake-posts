@@ -1,0 +1,29 @@
+{
+    "name": "contensio/plugin-fake-posts",
+    "description": "Fake post generator for development and testing. Generates posts with Faker content and Picsum images.",
+    "type": "library",
+    "license": "AGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Iosif Gabriel Chimilevschi",
+            "homepage": "https://contensio.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contensio\\FakePosts\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Contensio\\FakePosts\\FakePostsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}

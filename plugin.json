@@ -1,0 +1,10 @@
+{
+    "id": "fake-posts",
+    "name": "Fake Posts Generator",
+    "description": "Generate realistic fake posts with Faker content and Picsum images for development and testing.",
+    "version": "1.0.0",
+    "author": "Contensio",
+    "category": "developer-tools",
+    "icon": "bi-magic",
+    "dev_only": true
+}
