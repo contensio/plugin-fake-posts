@@ -1,10 +1,26 @@
 {
-    "id": "fake-posts",
-    "name": "Fake Posts Generator",
+    "name": "contensio/plugin-fake-posts",
+    "label": "Fake Posts Generator",
     "description": "Generate realistic fake posts with Faker content and Picsum images for development and testing.",
-    "version": "1.0.0",
     "author": "Contensio",
-    "category": "developer-tools",
-    "icon": "bi-magic",
-    "dev_only": true
+    "author_url": "https://contensio.com",
+    "version": "1.0.0",
+    "provider": "Contensio\\FakePosts\\FakePostsServiceProvider",
+    "autoload": {
+        "psr-4": {
+            "Contensio\\FakePosts\\": "src/"
+        }
+    },
+    "requires": {
+        "cms": "^0.1"
+    },
+    "menu": {
+        "placement": "tools",
+        "label": "Fake Posts",
+        "icon": "bi-magic",
+        "route": "fake-posts.index",
+        "permission": "plugins.configure"
+    },
+    "dev_only": true,
+    "removable": true
 }
