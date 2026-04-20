@@ -1,4 +1,4 @@
-# Fake Posts Generator — Contensio Plugin
+# Fake Posts Generator - Contensio Plugin
 
 Generate realistic fake posts for development and testing. Uses [FakerPHP](https://fakerphp.org/) for text content and [Picsum Photos](https://picsum.photos/) for images.
 

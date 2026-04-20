@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fake Posts Generator — Contensio plugin.
+ * Fake Posts Generator - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -40,7 +40,7 @@ class FakePostsController extends Controller
 
         $fakeCount = $this->generator->count();
 
-        return view('fake-posts::admin.index', compact(
+        return view('contensio-fake-posts::admin.index', compact(
             'contentTypes',
             'languages',
             'defaultLanguage',

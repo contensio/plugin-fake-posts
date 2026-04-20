@@ -51,7 +51,7 @@
             </div>
         </div>
         @if($fakeCount > 0)
-        <form method="POST" action="{{ route('fake-posts.delete-all') }}"
+        <form method="POST" action="{{ route('contensio-fake-posts.delete-all') }}"
               onsubmit="return confirm('Delete all {{ $fakeCount }} fake post(s) and their images? This cannot be undone.')">
             @csrf
             @method('DELETE')
@@ -65,7 +65,7 @@
     </div>
 
     {{-- Generate form --}}
-    <form method="POST" action="{{ route('fake-posts.generate') }}" id="generate-form">
+    <form method="POST" action="{{ route('contensio-fake-posts.generate') }}" id="generate-form">
         @csrf
 
         <div class="rounded-xl border border-gray-200 bg-white divide-y divide-gray-100">
@@ -199,7 +199,7 @@
     {{-- Artisan tip --}}
     <div class="mt-8 rounded-lg bg-gray-50 border border-gray-200 px-4 py-3">
         <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Artisan command</p>
-        <code class="text-sm text-gray-700 font-mono">php artisan contensio:fake-posts --count=20 --no-images</code>
+        <code class="text-sm text-gray-700 font-mono">php artisan contensio-fake-posts:generate --count=20 --no-images</code>
         <p class="mt-1.5 text-xs text-gray-400">
             Options: <code class="bg-gray-200 px-1 rounded">--count=N</code>
             <code class="bg-gray-200 px-1 rounded">--type=post</code>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fake Posts Generator — Contensio plugin.
+ * Fake Posts Generator - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -25,7 +25,7 @@ class FakePostsGenerator
 {
     /**
      * Image dimensions fetched from Picsum Photos.
-     * 1600×900 — 16:9, large editorial format.
+     * 1600×900 - 16:9, large editorial format.
      */
     const IMAGE_WIDTH  = 1600;
     const IMAGE_HEIGHT = 900;

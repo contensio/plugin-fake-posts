@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fake Posts Generator — Contensio plugin.
+ * Fake Posts Generator - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -17,9 +17,11 @@ use Illuminate\Support\ServiceProvider;
 
 class FakePostsServiceProvider extends ServiceProvider
 {
+    protected string $ns = 'contensio-fake-posts';
+
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'fake-posts');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', $this->ns);
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
         if ($this->app->runningInConsole()) {
@@ -27,7 +29,7 @@ class FakePostsServiceProvider extends ServiceProvider
         }
 
         Hook::add('contensio/admin/settings-cards', function () {
-            return view('fake-posts::partials.settings-hub-card')->render();
+            return view($this->ns . '::partials.settings-hub-card')->render();
         });
 
         // Badge in content/posts listing rows

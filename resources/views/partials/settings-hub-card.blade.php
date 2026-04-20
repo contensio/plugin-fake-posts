@@ -7,7 +7,7 @@
         ->count();
 @endphp
 
-<a href="{{ route('fake-posts.index') }}"
+<a href="{{ route('contensio-fake-posts.index') }}"
    class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-ember-300 hover:shadow-sm transition group">
     <div class="flex items-start justify-between">
         <div class="flex items-center gap-3">

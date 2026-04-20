@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fake Posts Generator — Contensio plugin.
+ * Fake Posts Generator - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -17,7 +17,7 @@ use Illuminate\Console\Command;
 
 class SeedFakePostsCommand extends Command
 {
-    protected $signature = 'contensio:fake-posts
+    protected $signature = 'contensio-fake-posts:generate
                             {--count=10       : Number of posts to generate}
                             {--type=          : Content type name (e.g. post). Defaults to first available type.}
                             {--terms=         : Comma-separated term IDs to attach}
